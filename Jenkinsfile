@@ -23,7 +23,6 @@ pipeline {
 				sh 'npm test'
 			}
 		}*/
-		    stages {
 		        stage('Run Docker Container') {
 		            steps {
 		                script {
@@ -34,7 +33,6 @@ pipeline {
 		                }
 		            }
 		        }
-		    }
 		/*stage('Build Docker Image'){
 			steps {
 				script {
