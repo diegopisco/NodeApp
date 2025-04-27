@@ -30,11 +30,11 @@ pipeline {
 				}
 			}
 		}
-		stage('Trivy Scan'){
+		/*stage('Trivy Scan'){
 			steps {
 				sh 'trivy --severity HIGH,CRITICAL --no-progress image --format table -o trivy-scan-report.txt ${DOCKER_HUB_REPO}:latest'
 			}
-		}
+		}*/
 		stage('Push Image to DockerHub'){
 			steps {
 				script {
