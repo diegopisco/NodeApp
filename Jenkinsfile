@@ -4,7 +4,7 @@ pipeline {
 		nodejs 'NodeJS'
 	}
 	environment {
-		DOCKER_HUB_CREDENTIALS_ID = 'dckr_pat_K3BOqf5TGfh6d9-o8IKTnCkCbMA'
+		DOCKER_HUB_CREDENTIALS_ID = 'jen-dockerhub'
 		DOCKER_HUB_REPO = 'diegopisco/mirepo'
 	}
 	stages {
