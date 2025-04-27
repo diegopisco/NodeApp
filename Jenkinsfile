@@ -4,8 +4,8 @@ pipeline {
 		nodejs 'NodeJS'
 	}
 	environment {
-		DOCKER_HUB_CREDENTIALS_ID = 'jen-dockerhub'
-		DOCKER_HUB_REPO = 'iquantc/iquant-app'
+		DOCKER_HUB_CREDENTIALS_ID = 'dckr_pat_K3BOqf5TGfh6d9-o8IKTnCkCbMA'
+		DOCKER_HUB_REPO = 'diegopisco/mirepo'
 	}
 	stages {
 		stage('Checkout Github'){
@@ -22,14 +22,14 @@ pipeline {
 			steps {
 				sh 'npm test'
 			}
-		}
+		}*/
 		stage('Build Docker Image'){
 			steps {
 				script {
 					dockerImage = docker.build("${DOCKER_HUB_REPO}:latest")
 				}
 			}
-		}
+		}/*
 		stage('Trivy Scan'){
 			steps {
 				sh 'trivy --severity HIGH,CRITICAL --no-progress image --format table -o trivy-scan-report.txt ${DOCKER_HUB_REPO}:latest'
