@@ -23,13 +23,25 @@ pipeline {
 				sh 'npm test'
 			}
 		}*/
-		stage('Build Docker Image'){
+		    stages {
+		        stage('Run Docker Container') {
+		            steps {
+		                script {
+		                    def myContainer = docker.image('my_custom_image:0.1')
+		                    myContainer.run()
+		                    def var1Value = sh(script: 'docker exec <container_id> /bin/sh -c "echo $Key"', returnStdout: true).trim()
+		                    echo "The value of Key is: ${var1Value}"
+		                }
+		            }
+		        }
+		    }
+		/*stage('Build Docker Image'){
 			steps {
 				script {
 					dockerImage = docker.build("${DOCKER_HUB_REPO}:latest")
 				}
 			}
-		}/*
+		}
 		stage('Trivy Scan'){
 			steps {
 				sh 'trivy --severity HIGH,CRITICAL --no-progress image --format table -o trivy-scan-report.txt ${DOCKER_HUB_REPO}:latest'
