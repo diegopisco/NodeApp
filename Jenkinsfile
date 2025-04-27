@@ -52,7 +52,7 @@ pipeline {
                 		mv kubectl /usr/local/bin/kubectl
 				'''
 			}
-		}/*
+		}
 		stage('Deploy to Kubernetes'){
 			steps {
 				script {
@@ -61,7 +61,7 @@ pipeline {
 					}
 				}
 			}
-		}*/
+		}
 	}
 
 	post {
