@@ -5,7 +5,7 @@ pipeline {
 	}
 	environment {
 		DOCKER_HUB_CREDENTIALS_ID = 'nexus'
-		DOCKER_HUB_REPO = 'default'
+		DOCKER_HUB_REPO = 'flask-web'
 	}
 	stages {
 		stage('Checkout Github'){
