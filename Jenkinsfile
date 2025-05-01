@@ -38,7 +38,7 @@ pipeline {
 		stage('Push Image to DockerHub'){
 			steps {
 				script {
-					docker.withRegistry('nexus-repo-docker.agnos.uk', "${DOCKER_HUB_CREDENTIALS_ID}"){
+					docker.withRegistry('https://nexus-repo-docker.agnos.uk', "${DOCKER_HUB_CREDENTIALS_ID}"){
 						dockerImage.push('latest')
 					}
 				}
