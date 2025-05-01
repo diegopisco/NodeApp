@@ -4,8 +4,8 @@ pipeline {
 		nodejs 'NodeJS'
 	}
 	environment {
-		DOCKER_HUB_CREDENTIALS_ID = 'jen-dockerhub'
-		DOCKER_HUB_REPO = 'diegopisco/mirepo'
+		DOCKER_HUB_CREDENTIALS_ID = 'nexus'
+		DOCKER_HUB_REPO = 'default'
 	}
 	stages {
 		stage('Checkout Github'){
@@ -38,7 +38,7 @@ pipeline {
 		stage('Push Image to DockerHub'){
 			steps {
 				script {
-					docker.withRegistry('https://registry.hub.docker.com', "${DOCKER_HUB_CREDENTIALS_ID}"){
+					docker.withRegistry('nexus-repo-docker.agnos.uk', "${DOCKER_HUB_CREDENTIALS_ID}"){
 						dockerImage.push('latest')
 					}
 				}
